@@ -1,0 +1,2 @@
+*.!sync
+node_modules/

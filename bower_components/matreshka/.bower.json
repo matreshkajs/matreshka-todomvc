@@ -1,0 +1,14 @@
+{
+  "name": "matreshka",
+  "homepage": "https://github.com/finom/matreshka",
+  "version": "0.0.4",
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.4",
+    "commit": "365d61be326065dbe8c5ec1bacc0e082ecfde3d0"
+  },
+  "_source": "git://github.com/finom/matreshka.git",
+  "_target": "~0.0.1",
+  "_originalSource": "matreshka"
+}
