@@ -19,7 +19,7 @@ var Todo = Class({
 			.on( 'render', function( evt ) {
 				this
 					// Привязка элементов, которые не требуют указания привязчика (binder). Здесь используются стандартные привязчики ([defaultBinders](http://ru.matreshka.io/#Matreshka.defaultBinders)), если возможно.
-					// * Свойство ``"completed"`` привязывается к чекбоксу с классом ``toggle``
+					// * Свойство ``"completed"`` привязывается к чекбоксу с классом ``toggle`` 
 					// * Свойство ``"edit"`` привязывается к полю (input type=text) с классом ``edit``
 					// * Свойство ``"destroy"`` привязывается к элементу с классом ``destroy``, который не имеет стандартного привязчика. Это значит, что элемент просто ассоциируется со свойством, не синхронизируясь с его значением.
 					.bindNode({
@@ -28,10 +28,10 @@ var Todo = Class({
 						destroy: ':sandbox .destroy'
 					})
 					// Эти привязки используют третий аргумент в качестве привязчика.
-					// * Видимость главного элемента будет зависеть от значения свойства ``"visible"`
-					// * Наличие класса ``"completed"`` у главного элемента будет зависеть от значения свойства ``"completed"``
+					// * Видимость главного элемента будет зависеть от значения свойства ``"visible"` ([binders.visibility](http://ru.matreshka.io/#Matreshka.binders.visibility))
+					// * Наличие класса ``"completed"`` у главного элемента будет зависеть от значения свойства ``"completed"`` ([binders.className](http://ru.matreshka.io/#Matreshka.binders.className))
 					// * Наличие класса ``"editing"`` у главного элемента будет зависеть от значения свойства ``"editing"``
-					// * Привязываем элемент ``label``, чей  ``innerHTML`` будет синхронизироваться со значением свойства ``"title"``
+					// * Привязываем элемент ``label``, чей  ``innerHTML`` будет синхронизироваться со значением свойства ``"title"`` ([binders.innerHTML](http://ru.matreshka.io/#Matreshka.binders.innerHTML))
 					.bindNode( 'visible', ':sandbox', MK.binders.visibility() )
 					.bindNode( 'completed', ':sandbox', MK.binders.className( 'completed' ) )
 					.bindNode( 'editing', ':sandbox', MK.binders.className( 'editing' ) )

@@ -1,24 +1,25 @@
-// **todos.js** - самый большой файл в этом проекте, который содержит большую часть логики. В проектах большего объема лучше разделать приложения на мелкие составляющие.
+// **todos.js** - is the largest file in this project which contains most of logic. In bigger projects it is better to divide applications into smaller parts.
 "use strict";
 var Todos = Class({
 	'extends': MK.Array,
-	// [Model](http://ru.matreshka.io/#Matreshka.Array-Model) определяет класс элементов, которые будут входить в коллекцию. В данном слуае, элементами коллекции будут экземпляры класса [Todo](todo.html)
+	// [Model](http://matreshka.io/#Matreshka.Array-Model) defines the class of items which will be included into the collection. In this case, the items of the collection will be instances of the [Todo](todo.html) class.
 	Model: Todo,
-	// Определяя свойство [itemRenderer](http://ru.matreshka.io/#Matreshka.Array-itemRenderer) вы создаете рендерер для каждого добавленного элемента массива. В данном случае, шаблон содержится в элементе с id=todo_item_template (см. HTML код).
+	//  Defining the [itemRenderer](http://matreshka.io/#Matreshka.Array-itemRenderer) property, you create a renderer for every added item of the array (see HTML code).
 	itemRenderer: '#todo_item_template',
 	constructor: function() {
 		var self = this
-			// Добавляем зависимость свойства ``"leftLength"`` от свойств ``"length"`` и ``"completedLength"``, как их разность. Приложение "слушает" изменения в этих свойствах, вычисляя ``"leftLength"`` при каждом их изменении.
+			// Add the dependency of the ``"leftLength"`` property on ``"length"`` and ``"completedLength"`` ones, and use their difference as a value. The application listens to the changes in these properties calculating ``“leftLength"`` on every their changing.
 			.linkProps( 'leftLength', 'length completedLength', function( length, completedLength ) {
 				return length - completedLength;
 			})
-			// Метод ``"bindings"`` добавляет привязки между свойствами экземпляра класса и DOM элементами. Метод ``"events"``, как можно догадаться, добавляет обработчики событий. Эти имена методов не являются специальными, они группируют разные действия для чистоты кода. После их вызова, вынимаем данные из локального хранилища и создаем из него элементы todo с помощью метода [recreate](ttp://ru.matreshka.io/#Matreshka.Array-recreate).
+			// The ``"bindings"`` method adds data bindings between the properties of the class instance and DOM nodes. The ``"events"`` method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and restore the todo items from it using [recreate](http://matreshka.io/#Matreshka.Array-recreate) method.
+
 			.bindings()
 			.events()
 			.recreate( JSON.parse( localStorage[ 'todos-matreshka' ] || '[]' ) )
 		;
 		
-		// Мы используем библиотеку для роутинга [director](https://github.com/flatiron/director), как того требует спецификация TodoMVC. Когда ``location.hash`` меняется, его значение присваивается свойству ``"route"``.
+		// We use the [director](https://github.com/flatiron/director) library for routing, as it is required by the specification of TodoMVC. When ``location.hash`` is changed, its value is added to the ``"route"`` property.
 		Router({
 			':state': function( state ) {
 				self.route = state;
@@ -30,9 +31,9 @@ var Todos = Class({
 	},
 	bindings: function() {
 		return this
-			// Объявляем песочницу
+			// Declare a sandbox
 			.bindNode( 'sandbox', '#todoapp' )
-			// Привязываем несколько других элементов (main, footer и т. д.). Селектор ``:sandbox`` не используется потому что мы обращаемся к элементам по ID.
+			// Bind some other nodes (``main``, ``footer``, etc.). The ``:sandbox`` selector is not used because we access the elements by their ID.
 			.bindNode({
 				main: '#main',
 				footer: '#footer',
@@ -41,12 +42,12 @@ var Todos = Class({
 				allCompleted: '#toggle-all',
 				clearCompleted: '#clear-completed'
 			})
-			// Следующий вызов [bindNode](http://ru.matreshka.io/#Matreshka-bindNode) делает видимость элементов зависимым от значений соответствующих свойств (если значение проходит не-строгую проверку на равенство ``true``, элемент будет показан, иначе - спрятан).
+			// The next call of [bindNode](http://matreshka.io/#Matreshka-bindNode) makes the visibility of HTML nodes dependable on the values of corresponding properties (if the value passes a non-strict test for equality ``true``, the element will be shown, otherwise - hidden).
 			.bindNode({
 				completedLength: ':bound(clearCompleted)',
 				length: ':bound(main), :bound(footer)'
 			}, MK.binders.visibility() )
-			// Следующие две привязки меняют html привязанных элементов в зависимости от значения соответствующего свойства.
+			// The next two bindings change inner HTML of the bound nodes depending on a value of the corresponding properties.
 			.bindNode( 'completedLength', ':bound(clearCompleted)', {
 				setValue: function( v ) {
 					$( this ).html( 'Clear completed (' + v + ')' );
@@ -57,7 +58,7 @@ var Todos = Class({
 					$( this ).html( '<strong>' + v + '</strong> item' + ( v !== 1 ? 's' : '' ) + ' left' );
 				}
 			})
-			// Эта привязка контролирует, какая именно ссылка ("All", "Active", "Completed") будет выделена жирным шрифтом. Здесь использован хитрый приём для демонстрации работы ``bindNode``: элемент ``#filters`` связываем со свойством ``"route"``, но в привязчике манипулируем ссылками внутри этого элемента.
+			// This binding controls which exact link (“All”, “Active”, “Completed”) will be highlighted in bold. The following technique has been used for demonstrating the work of ``bindNode`` here: we bind the ``#filters`` element to the ``"route"`` property, but in the binder we manipulate the links inside this element.
 			.bindNode( 'route', '#filters', {
 				setValue: function( v ) {
 					$( this ).find( 'a' ).each( function() {
@@ -70,11 +71,11 @@ var Todos = Class({
 	},
 	events: function() {
 		return this
-			// Добавляем обработчик события на изменение свойства ``"JSON"``, которое хранит представление списка todo в виде JSON строки. Для того, чтоб реже обращаться к жесткому диску (который работает медленнее, чем оперативная память), используется метод [onDebounce](http://ru.matreshka.io/#Matreshka-onDebounce), который предотвращает многократный вызов обработчика за промежуток времени.
+			// Add the event handler to the changing of the ``"JSON"`` property which keeps the representation of the todo list as JSON string. In order to access a hard drive as rare as possible (because it works slower than RAM), the [onDebounce](http://matreshka.io/#Matreshka-onDebounce) method is used, it prevents a multiple invocation of a handler over a period of time.
 			.onDebounce( 'change:JSON', function( evt ) {
 				localStorage[ 'todos-matreshka' ] = evt.value;
 			})
-			// Если в инпуте, привязанном к свойству ``"newTodo"`` нажата клавиша  ``Enter`` и если очищенное от пробелов значение этого свойства не является пустой строкой, добавляем новый пункт todo, используя метод ``push``.
+			// If the Enter key is pressed in the input bound to the ``“newTodo"`` property and the trimmed value of this property is not an empty string, add a new todo item using the ``push`` method.
 			.on( 'keyup::newTodo', function( evt ) {
 				var newTodo;
 				if( evt.which === ENTER_KEY ) {
@@ -87,7 +88,7 @@ var Todos = Class({
 					this.newTodo = '';
 				}
 			})
-			// Когда меняется значение свойства ``allCompleted``, мы присваиваем меняем ``"completed"`` для всех todo то же самое значение. Флаг ``"silent"`` говорит о том, что событие ``"change:completed"`` не должно быть вызвано.
+			// When the value of the ``"allCompleted"`` property is changed, we change ``"completed"`` for all todo items to the same value. The ``"silent"`` flag means that the ``"change:completed"`` event must not be triggered.
 			.on( 'change:allCompleted', function( evt ) {
 				this.forEach( function( todo ) {
 					todo.set( 'completed', evt.value, { silent: true });
@@ -95,7 +96,7 @@ var Todos = Class({
 				
 				this.completedLength = evt.value ? this.length : 0;
 			})
-			// Клик мышью по элементу ``'#clear-completed'`` удаляет все выволненные пункты, используя метод [pull](http://ru.matreshka.io/#Matreshka.Array-pull).
+			// A mouse click on the ``'#clear-completed'`` node deletes all the performed items using the [pull](http://matreshka.io/#Matreshka.Array-pull) method.
 			.on( 'click::clearCompleted', function() {
 				this.forEach( function( todo ) {
 					if( todo.completed ) {
@@ -103,25 +104,25 @@ var Todos = Class({
 					}
 				}, this );
 			})
-			// Если какой-нибудь элемент списка дел сгенерировал событие ``"readytodie"``, мы его удаляем, используя метод [pull](http://ru.matreshka.io/#Matreshka.Array#pull).
+			// If some element from the todo list has fired the ``"readytodie"`` event, we delete it using the [pull](http://matreshka.io/#Matreshka.Array#pull) method.
 			.on( '@readytodie', function( todo ) {
 				this.pull( todo );
 			})
-			// Следующий обработчик вызывается по двум событиям. Первое событие - ``"modify"``, которое срабатывает, когда ``MK.Array`` меняется (когда элементы добавляются или удаляются). Второе - ``"@change:completed"``. Символ "@" указывает на то, что мы слушаем событие ``"change:completed"`` для каждого пункта todo. Получается, обработчик срабатывает, когда пункт добавлен или удален и когда у одного из пунктов меняется свойство ``"completed"`` (``"title"`` нас не интересует). Код обработчика говорит сам за себя: ``"allCompleted"`` становится равным ``true``, если каждый пункт выполнен и наоборот - ``false``, когда какой-либо из пунктов не выполнен. Затем вычисляется значение свойства ``"completedLength"``, которое содержит количество выполненных пунктов.
+			// The next handler is called by two events. The first one is ``"modify"`` which fires when ``MK.Array`` is changed (when some elements are added or deleted). The second one is ``"@change:completed"``. The ``@`` symbol means that we listen to the ``"change:completed"`` event for every item of todo list. As a result, the handler calls when an item is added or deleted and when the ``"completed"`` property of one of the items is changed. The code of the handler is self-explanatory: ``"allCompleted"`` becomes equal ``true`` if every item is performed and inversely – ``false`` when some item is not performed. Then the value of the ``"completedLength"`` property is calculated, which contains a number of the performed items.
 			.on( 'modify @change:completed', function() {
 				this.set( 'allCompleted', this.every( function( todo ) {
 					return todo.completed;
 				}), { silent: true } );
 				
-				this.set( 'completedLength', this.filter( function( todo ) {
+				this.completedLength = this.filter( function( todo ) {
 					return todo.completed;
-				}).length );
+				}).length;
 			})
-			// Если пункты добавлены или удалены или если свойство ``"completed"`` помеялось у какого-нибудь пункта или если изменилось значение свойства ``"allCompleted"``, готовим представление нашего списка todo для того, чтоб затем поместить его в локальное хранилище (``localStorage``).
+			// If some items have been added or deleted or the ``"completed"`` property of one of the items has been changed or the value of the ``"allCompleted"`` property has been changed, prepare the representation of our todo list in order to place it into the ``localStorage`` afterwards.
 			.on( 'modify @change:completed change:allCompleted', function() {
 				this.JSON = JSON.stringify( this );
 			})
-			// Следующие строки контролируют, как видимость пунктов списка дел контролируется ``location.hash`` (или свойства ``"route"``). Эта часть может быть реализована несколькими способами. Здесь выбран способ добавления привязок с помощью метода  [linkProps](http://ru.matreshka.io/#Matreshka.Array-linkProps). Что здесь происходит? Мы слушаем событие ``"addone"``, срабатывающее, когда новый пункт добавляется в список дел. Обработчик события получает объект (``evt``) в качестве аргумента, который содержит свойство ``"added"``, являющеесяя добавленным пунктом. Мы перебираем добавленные элементв и добавляем зависимости свойства  ``"visible"`` от ``todos.route`` и от собственного свойства ``"completed"``.
+			// The next strings control how the visibility of the items from the todo list is controlled by ``location.hash`` (or the ``"route"`` property). This part can be implemented in several ways. The way of adding dependencies of one property on the others using the [linkProps](http://matreshka.io/#Matreshka.Array-linkProps) method has been chosen here. What happens here? We listen to the ``"addone"`` event which fires when a new item is added to the todo list. The event handler receives the object (``evt``) as an argument containing the ``"added"`` property which is the added item. We add the dependency of the ``"visible"`` property for the added item on ``todos.route`` and on the own ``"completed"`` property.
 			.on( 'addone', function( evt ) {
 				var todo = evt.added;
 				

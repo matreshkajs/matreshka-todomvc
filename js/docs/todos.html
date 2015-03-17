@@ -53,7 +53,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p><strong>todos.js</strong> - самый большой файл в этом проекте, который содержит большую часть логики. В проектах большего объема лучше разделать приложения на мелкие составляющие.</p>
+              <p><strong>todos.js</strong> - s the largest file in this project which contains most of logic. In bigger projects it is better to divide applications into smaller parts.</p>
 
             </div>
             
@@ -70,7 +70,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p><a href="http://ru.matreshka.io/#Matreshka.Array-Model">Model</a> определяет класс элементов, которые будут входить в коллекцию. В данном слуае, элементами коллекции будут экземпляры класса <a href="todo.html">Todo</a></p>
+              <p><a href="http://matreshka.io/#Matreshka.Array-Model">Model</a> defines the class of elements which will be included into the collection. In this case, the elements of the collection will be instances of the <a href="todo.html">Todo</a> class.</p>
 
             </div>
             
@@ -85,7 +85,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>Определяя свойство <a href="http://ru.matreshka.io/#Matreshka.Array-itemRenderer">itemRenderer</a> вы создаете рендерер для каждого добавленного элемента массива. В данном случае, шаблон содержится в элементе с id=todo_item_template (см. HTML код).</p>
+              <p> Defining the <a href="http://matreshka.io/#Matreshka.Array-itemRenderer">itemRenderer</a> property, you create a renderer for every added element of the array. In this case, the element includes the template with id=todo_item_template (see HTML code).</p>
 
             </div>
             
@@ -102,7 +102,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Добавляем зависимость свойства <code>&quot;leftLength&quot;</code> от свойств <code>&quot;length&quot;</code> и <code>&quot;completedLength&quot;</code>, как их разность. Приложение “слушает” изменения в этих свойствах, вычисляя <code>&quot;leftLength&quot;</code> при каждом их изменении.</p>
+              <p>Add the dependency of the <code>&quot;leftLength&quot;</code> property on <code>&quot;length&quot;</code> and <code>&quot;completedLength&quot;</code> ones, and use their difference as a value. The application listens to the changes in these properties calculating <code>“leftLength&quot;</code> on every their changing.</p>
 
             </div>
             
@@ -119,11 +119,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Метод <code>&quot;bindings&quot;</code> добавляет привязки между свойствами экземпляра класса и DOM элементами. Метод <code>&quot;events&quot;</code>, как можно догадаться, добавляет обработчики событий. Эти имена методов не являются специальными, они группируют разные действия для чистоты кода. После их вызова, вынимаем данные из локального хранилища и создаем из него элементы todo с помощью метода <a href="ttp://ru.matreshka.io/#Matreshka.Array-recreate">recreate</a>.</p>
+              <p>The <code>&quot;bindings&quot;</code> method adds bindings between the properties of the class instance and DOM elements. The <code>&quot;events&quot;</code> method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and create the todo elements from it with the help of the <a href="http://matreshka.io/#Matreshka.Array-recreate">recreate</a> method.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.bindings()
+            <div class="content"><div class='highlight'><pre>
+			.bindings()
 			.events()
 			.recreate( <span class="hljs-built_in">JSON</span>.parse( localStorage[ <span class="hljs-string">'todos-matreshka'</span> ] || <span class="hljs-string">'[]'</span> ) )
 		;</pre></div></div>
@@ -137,7 +138,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Мы используем библиотеку для роутинга <a href="https://github.com/flatiron/director">director</a>, как того требует спецификация TodoMVC. Когда <code>location.hash</code> меняется, его значение присваивается свойству <code>&quot;route&quot;</code>.</p>
+              <p>We use the <a href="https://github.com/flatiron/director">director</a> library for routing, as it is required by the specification of TodoMVC. When `location.hash<code>is changed, its value is added to the</code>“route”`` property.</p>
 
             </div>
             
@@ -162,7 +163,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>Объявляем песочницу</p>
+              <p>Declare a sandbox</p>
 
             </div>
             
@@ -177,7 +178,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Привязываем несколько других элементов (main, footer и т. д.). Селектор <code>:sandbox</code> не используется потому что мы обращаемся к элементам по ID.</p>
+              <p>Bind some other elements (<code>main</code>, <code>footer</code>, etc.). The <code>:sandbox</code> selector is not used because we access the elements by ID.</p>
 
             </div>
             
@@ -199,7 +200,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>Следующий вызов <a href="http://ru.matreshka.io/#Matreshka-bindNode">bindNode</a> делает видимость элементов зависимым от значений соответствующих свойств (если значение проходит не-строгую проверку на равенство <code>true</code>, элемент будет показан, иначе - спрятан).</p>
+              <p>The next call of <a href="http://matreshka.io/#Matreshka-bindNode">bindNode</a> makes the visibility of elements dependable on the values of corresponding properties (if the value runs a non-strict  test for equality <code>true</code>, the element will be shown, otherwise - hidden).</p>
 
             </div>
             
@@ -217,7 +218,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Следующие две привязки меняют html привязанных элементов в зависимости от значения соответствующего свойства.</p>
+              <p>The next two bindings change HTML of the bound elements depending on a value of the corresponding property.</p>
 
             </div>
             
@@ -241,7 +242,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>Эта привязка контролирует, какая именно ссылка (“All”, “Active”, “Completed”) будет выделена жирным шрифтом. Здесь использован хитрый приём для демонстрации работы <code>bindNode</code>: элемент <code>#filters</code> связываем со свойством <code>&quot;route&quot;</code>, но в привязчике манипулируем ссылками внутри этого элемента.</p>
+              <p>This binding controls which exact link (“All”, “Active”, “Completed”) will be highlighted in bold. The following technique has been used for demonstrating the work of <code>bindNode</code> here: we bind the <code>#filters</code> element to the <code>&quot;route&quot;</code> property, but in the binder we manipulate the links inside this element.</p>
 
             </div>
             
@@ -267,7 +268,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>Добавляем обработчик события на изменение свойства <code>&quot;JSON&quot;</code>, которое хранит представление списка todo в виде JSON строки. Для того, чтоб реже обращаться к жесткому диску (который работает медленнее, чем оперативная память), используется метод <a href="http://ru.matreshka.io/#Matreshka-onDebounce">onDebounce</a>, который предотвращает многократный вызов обработчика за промежуток времени.</p>
+              <p>Add the event handler to the changing of the <code>&quot;JSON&quot;</code> property which keeps the representation of the todo list as JSON string. In order to access a hard drive as rare as possible (because it works slower than RAM), the <a href="http://matreshka.io/#Matreshka-onDebounce">onDebounce</a> method is used, it prevents a multiple invocation of a handler over a period of time.</p>
 
             </div>
             
@@ -284,7 +285,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>Если в инпуте, привязанном к свойству <code>&quot;newTodo&quot;</code> нажата клавиша  <code>Enter</code> и если очищенное от пробелов значение этого свойства не является пустой строкой, добавляем новый пункт todo, используя метод <code>push</code>.</p>
+              <p>If the Enter key is pressed in the input bound to the <code>“newTodo&quot;</code> property and the value of this property which is cleared from spaces is not an empty string, add a new todo item using the <code>push</code> method.</p>
 
             </div>
             
@@ -310,7 +311,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>Когда меняется значение свойства <code>allCompleted</code>, мы присваиваем меняем <code>&quot;completed&quot;</code> для всех todo то же самое значение. Флаг <code>&quot;silent&quot;</code> говорит о том, что событие <code>&quot;change:completed&quot;</code> не должно быть вызвано.</p>
+              <p>When the value of the <code>&quot;allCompleted&quot;</code> property is changed, we change <code>&quot;completed&quot;</code> for all todo to the same value. The <code>&quot;silent&quot;</code> flag means that the <code>&quot;change:completed&quot;</code> event must not be called.</p>
 
             </div>
             
@@ -331,7 +332,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>Клик мышью по элементу <code>&#39;#clear-completed&#39;</code> удаляет все выволненные пункты, используя метод <a href="http://ru.matreshka.io/#Matreshka.Array-pull">pull</a>.</p>
+              <p>The click of the mouse on the <code>&#39;#clear-completed&#39;</code> element deletes all the performed items using the <a href="http://matreshka.io/#Matreshka.Array-pull">pull</a> method.</p>
 
             </div>
             
@@ -352,7 +353,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>Если какой-нибудь элемент списка дел сгенерировал событие <code>&quot;readytodie&quot;</code>, мы его удаляем, используя метод <a href="http://ru.matreshka.io/#Matreshka.Array#pull">pull</a>.</p>
+              <p>If some element from the todo list has generated the <code>&quot;readytodie&quot;</code> event, we delete it using the <a href="http://matreshka.io/#Matreshka.Array#pull">pull</a> method.</p>
 
             </div>
             
@@ -369,7 +370,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>Следующий обработчик вызывается по двум событиям. Первое событие - <code>&quot;modify&quot;</code>, которое срабатывает, когда <code>MK.Array</code> меняется (когда элементы добавляются или удаляются). Второе - <code>&quot;@change:completed&quot;</code>. Символ “@” указывает на то, что мы слушаем событие <code>&quot;change:completed&quot;</code> для каждого пункта todo. Получается, обработчик срабатывает, когда пункт добавлен или удален и когда у одного из пунктов меняется свойство <code>&quot;completed&quot;</code> (<code>&quot;title&quot;</code> нас не интересует). Код обработчика говорит сам за себя: <code>&quot;allCompleted&quot;</code> становится равным <code>true</code>, если каждый пункт выполнен и наоборот - <code>false</code>, когда какой-либо из пунктов не выполнен. Затем вычисляется значение свойства <code>&quot;completedLength&quot;</code>, которое содержит количество выполненных пунктов.</p>
+              <p>The next handler is called by two events. The first one is <code>&quot;modify&quot;</code> which fires when <code>MK.Array</code> is changed (when some elements are added or deleted). The second one is <code>&quot;@change:completed&quot;</code>. The <code>@</code> symbol means that we listen to the <code>&quot;change:completed&quot;</code> event for every item of todo list. As a result, the handler calls when an item is added or deleted and when the <code>&quot;completed&quot;</code> property of one of the items is changed. The code of the handler is self-explanatory: <code>&quot;allCompleted&quot;</code> becomes equal <code>true</code> if every item is performed and inversely – <code>false</code> when some item is not performed. Then the value of the <code>&quot;completedLength&quot;</code> property is calculated, which contains a number of the performed items.</p>
 
             </div>
             
@@ -392,7 +393,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
-              <p>Если пункты добавлены или удалены или если свойство <code>&quot;completed&quot;</code> помеялось у какого-нибудь пункта или если изменилось значение свойства <code>&quot;allCompleted&quot;</code>, готовим представление нашего списка todo для того, чтоб затем поместить его в локальное хранилище (<code>localStorage</code>).</p>
+              <p>If some items have been added or deleted or the <code>&quot;completed&quot;</code> property of one of the items has been changed or the value of the <code>&quot;allCompleted&quot;</code> property has been changed, prepare the representation of our todo list in order to place it into the <code>localStorage</code> afterwards.</p>
 
             </div>
             
@@ -409,7 +410,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p>Следующие строки контролируют, как видимость пунктов списка дел контролируется <code>location.hash</code> (или свойства <code>&quot;route&quot;</code>). Эта часть может быть реализована несколькими способами. Здесь выбран способ добавления привязок с помощью метода  <a href="http://ru.matreshka.io/#Matreshka.Array-linkProps">linkProps</a>. Что здесь происходит? Мы слушаем событие <code>&quot;addone&quot;</code>, срабатывающее, когда новый пункт добавляется в список дел. Обработчик события получает объект (<code>evt</code>) в качестве аргумента, который содержит свойство <code>&quot;added&quot;</code>, являющеесяя добавленным пунктом. Мы перебираем добавленные элементв и добавляем зависимости свойства  <code>&quot;visible&quot;</code> от <code>todos.route</code> и от собственного свойства <code>&quot;completed&quot;</code>.</p>
+              <p>The next strings control how the visibility of the items from the todo list is controlled by <code>location.hash</code> (or the <code>&quot;route&quot;</code> property). This part can be implemented in several ways. The way of adding dependencies of one property on the others using the <a href="http://matreshka.io/#Matreshka.Array-linkProps">linkProps</a> method has been chosen here. What happens here? We listen to the <code>&quot;addone&quot;</code> event which fires when a new item is added to the todo list. The event handler receives the object (<code>evt</code>) as an argument containing the <code>&quot;added&quot;</code> property which is the added item. We add the dependency of the <code>&quot;visible&quot;</code> property for the added item on <code>todos.route</code> and on the own <code>&quot;completed&quot;</code> property.</p>
 
             </div>
             

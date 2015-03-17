@@ -87,7 +87,7 @@ var Todos = Class({
 					this.newTodo = '';
 				}
 			})
-			// Когда меняется значение свойства ``allCompleted``, мы присваиваем меняем ``"completed"`` для всех todo то же самое значение. Флаг ``"silent"`` говорит о том, что событие ``"change:completed"`` не должно быть вызвано.
+			// Когда меняется значение свойства ``allCompleted``, мы меняем ``"completed"`` для всех todo на то же самое значение. Флаг ``"silent"`` говорит о том, что событие ``"change:completed"`` не должно быть вызвано.
 			.on( 'change:allCompleted', function( evt ) {
 				this.forEach( function( todo ) {
 					todo.set( 'completed', evt.value, { silent: true });
@@ -113,9 +113,9 @@ var Todos = Class({
 					return todo.completed;
 				}), { silent: true } );
 				
-				this.set( 'completedLength', this.filter( function( todo ) {
+				this.completedLength = this.filter( function( todo ) {
 					return todo.completed;
-				}).length );
+				}).length;
 			})
 			// Если пункты добавлены или удалены или если свойство ``"completed"`` помеялось у какого-нибудь пункта или если изменилось значение свойства ``"allCompleted"``, готовим представление нашего списка todo для того, чтоб затем поместить его в локальное хранилище (``localStorage``).
 			.on( 'modify @change:completed change:allCompleted', function() {

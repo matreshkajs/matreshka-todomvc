@@ -53,7 +53,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p><strong>todo.js</strong> содержит класс <code>Todo</code>, который наследуется от класса <a href="http://ru.matreshka.io/#Matreshka.Object">Matreshka.Object</a> и используется, в качестве модели (<a href="http://ru.matreshka.io/#Matreshka.Array-Model">Model</a>) для главного класса (<a href="todos.html">Todos</a>).</p>
+              <p><strong>todo.js</strong> contains the <code>Todo</code> class, which is inherited from the <a href="http://matreshka.io/#Matreshka.Object">Matreshka.Object</a> class and used as a (<a href="http://matreshka.io/#Matreshka.Array-Model">Model</a>) for the main class (<a href="todos.html">Todos</a>).</p>
 
             </div>
             
@@ -72,9 +72,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Присваиваем значения по умолчанию и добавляем ключи <code>&quot;title&quot;</code> and <code>&quot;completed&quot;</code> в список ключей, отвечающих за данные (см. <a href="http://ru.matreshka.io/#Matreshka.Object-jset">jset</a>).
-Свойство <code>&quot;title&quot;</code> по умолчанию - пустая строка.
-Свойство <code>&quot;completed&quot;</code> по умолчанию - <code>false</code>.</p>
+              <p>Assign the default values and add the keys <code>&quot;title&quot;</code> and <code>&quot;completed&quot;</code> to the list of the keys which are responsible for the data (see <a href="http://matreshka.io/#Matreshka.Object-jset">jset</a>).
+The <code>&quot;title&quot;</code> property by default is an empty string.
+The <code>&quot;completed&quot;</code> property by default is false.</p>
 
             </div>
             
@@ -92,7 +92,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>Теперь присваиваем свойствам данные, которые конструктор получил в качестве аргумента, перезаписывая значения по умолчанию (например,  <code>{ title: &#39;Do it!&#39; }</code>). </p>
+              <p>Now assign the data which the constructor has received as an argument to the properties, overwriting the default values  (for example, <code>{ title: &#39;Do it!&#39; }</code>).</p>
 
             </div>
             
@@ -107,7 +107,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Свойство <code>&quot;visible&quot;</code> отвечает за видимость элемента списка дел на странице.</p>
+              <p>The <code>&quot;visible&quot;</code> property is responsible for the visibility of an element from the todo list on the page. </p>
 
             </div>
             
@@ -122,7 +122,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Ждем событие <code>&quot;render&quot;</code>, используя метод <a href="http://ru.matreshka.io/#Matreshka-on">on</a>. Событие срабатывает, когда отрисовывается элемент, соответствующий экземпляру класса.</p>
+              <p>Wait for the <code>&quot;render&quot;</code> event using the <a href="http://matreshka.io/#Matreshka-on">on</a> method. The event fires when the element corresponding to the instance of the class is rendered.</p>
 
             </div>
             
@@ -138,11 +138,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Привязка элементов, которые не требуют указания привязчика (binder). Здесь используются стандартные привязчики (<a href="http://ru.matreshka.io/#Matreshka.Array-defaultBinders">defaultBinders</a>), если возможно.</p>
+              <p>The binding of the elements that do not require the assignment of the binder (binder). The <a href="http://matreshka.io/#Matreshka.Array-defaultBinders">defaultBinders</a> are used here if it is possible.</p>
 <ul>
-<li>Свойство <code>&quot;completed&quot;</code> привязывается к чекбоксу с классом <code>toggle</code></li>
-<li>Свойство <code>&quot;edit&quot;</code> привязывается к полю (input type=text) с классом <code>edit</code></li>
-<li>Свойство <code>&quot;destroy&quot;</code> привязывается к элементу с классом <code>destroy</code>, который не имеет стандартного привязчика. Это значит, что элемент просто ассоциируется со свойством, не синхронизируясь с его значением.</li>
+<li>The <code>&quot;completed&quot;</code> property is bound to the checkbox with <code>toggle</code> class</li>
+<li>The <code>&quot;edit&quot;</code> property is bound to the field (<code>input type=text</code>) with <code>edit</code> class</li>
+<li>The <code>&quot;destroy&quot;</code> property is bound to the element with <code>destroy</code> class which does not have a default binder. It means that the element is simply associated with the property without synchronizing with its value.</li>
 </ul>
 
             </div>
@@ -162,12 +162,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>Эти привязки используют третий аргумент в качестве привязчика.</p>
+              <p>These bindings use the third argument as a binder.</p>
 <ul>
-<li>Видимость главного элемента будет зависеть от значения свойства <code>`&quot;visible&quot;</code></li>
-<li>Наличие класса <code>&quot;completed&quot;</code> у главного элемента будет зависеть от значения свойства <code>&quot;completed&quot;</code></li>
-<li>Наличие класса <code>&quot;editing&quot;</code> у главного элемента будет зависеть от значения свойства <code>&quot;editing&quot;</code></li>
-<li>Привязываем элемент <code>label</code>, чей  <code>innerHTML</code> будет синхронизироваться со значением свойства <code>&quot;title&quot;</code></li>
+<li>The visibility of the sandbox element will depend on the value of the <code>&quot;visible&quot;</code> property (<a href="http://matreshka.io/#Matreshka.binders.visibility">binders.visibility</a>)</li>
+<li>The presence of the <code>&quot;completed&quot;</code> class in the sandbox element will depend on the value of the <code>&quot;completed&quot;</code> property (<a href="http://matreshka.io/#Matreshka.binders.className">binders.className</a>)</li>
+<li>The presence of the <code>&quot;editing&quot;</code> class in the sandbox element will depend on the value of the <code>&quot;editing&quot;</code> property </li>
+<li>Bind the element <code>label</code> whose <code>innerHTML</code> will be synchronized with the value of the <code>&quot;title&quot;</code> property (<a href="http://matreshka.io/#Matreshka.binders.innerHTML">binders.innerHTML</a>)</li>
 </ul>
 
             </div>
@@ -186,10 +186,10 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Добавляем обработчик события двойного щелчка мышью (<code>&quot;dblclick&quot;</code>) для элемента, привязанного к свойству <code>&quot;title&quot;</code> (тег <code>label</code>).
-Когда срабатывает обработчик, мы меняем режим экземпляра на редактирование, присваивая свойству <code>&quot;editing&quot;</code> значение <code>true</code>. Это действие добавляет класс <code>&quot;edit&quot;</code> главному элементу (см. привязки выше).
-Затем мы присваиваем текущее значение свойства <code>&quot;title&quot;</code> свойству <code>&quot;edit&quot;</code>.
-После этого устанавливаем фокус на поле, привязанное к свойству <code>&quot;edit&quot;</code>.</p>
+              <p>Add the event handler of the mouse double click (<code>&quot;dblclick&quot;</code>) to the element bound to the <code>&quot;title&quot;</code> property (<code>label</code> tag).
+When the handler fires, we change the instance mode to the editing and assign the value <code>true</code> to the <code>&quot;editing&quot;</code> property. This action adds the <code>&quot;edit&quot;</code> class to the sandbox element (see bindings above).
+Next we assign the current value of the <code>&quot;title&quot;</code> property to the <code>&quot;edit&quot;</code> property.
+After that we take focus on the field bound to the <code>&quot;edit&quot;</code> property.</p>
 
             </div>
             
@@ -208,9 +208,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>Добавляем обработчик события <code>&quot;keyup&quot;</code> элементу, привязанному к свойству <code>&quot;edit&quot;</code>.
-Если нажата клавиша <code>Esc</code>, возвращаемся из режима редактирования в обычный режим.
-Если нажата класиша <code>Enter</code>, удаляем лишние пробелы у значения свойства <code>&quot;edit&quot;</code> и присваиваем его свойству <code>&quot;title&quot;</code>. Затем, возвращаемся из режима редактирования в обычный режим. Если значение - пустая строка, вызываем событие <code>readytodie</code>, которое слушается классом <code>Todos</code>.</p>
+              <p>Add the <code>&quot;keyup&quot;</code> event handler to the element bound to the <code>&quot;edit&quot;</code> property.
+If the <code>Esc</code> key is pressed, return from the edit mode to the normal mode.
+If the <code>Enter</code> key is pressed, delete unnecessary spaces from the <code>&quot;edit&quot;</code> property value and assign it to the <code>&quot;title&quot;</code> property. Then return from the edit mode to the normal mode. If the value is an empty string, call the <code>readytodie</code> event which is listened by the <code>Todos</code> class.</p>
 
             </div>
             
@@ -237,7 +237,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Если кликнуть по элементу, отвечающему за удаление пункта, вызываем событие <code>readytodie</code>, которое слушается классом <code>Todos</code>.</p>
+              <p>If we click on the element that is responsible for the item deletion, we trigger the <code>readytodie</code> event which is listened to by the <code>Todos</code> class.</p>
 
             </div>
             
