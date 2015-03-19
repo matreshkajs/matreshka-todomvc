@@ -378,9 +378,9 @@
 					<span class="hljs-keyword">return</span> todo.completed;
 				}), { silent: <span class="hljs-literal">true</span> } );
 				
-				<span class="hljs-keyword">this</span>.set( <span class="hljs-string">'completedLength'</span>, <span class="hljs-keyword">this</span>.filter( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( todo )</span> </span>{
+				<span class="hljs-keyword">this</span>.completedLength = <span class="hljs-keyword">this</span>.filter( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( todo )</span> </span>{
 					<span class="hljs-keyword">return</span> todo.completed;
-				}).length );
+				}).length;
 			})</pre></div></div>
             
         </li>

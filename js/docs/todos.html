@@ -53,7 +53,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p><strong>todos.js</strong> - s the largest file in this project which contains most of logic. In bigger projects it is better to divide applications into smaller parts.</p>
+              <p><strong>todos.js</strong> - is the largest file in this project which contains most of logic. In bigger projects it is better to divide applications into smaller parts.</p>
 
             </div>
             
@@ -70,7 +70,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p><a href="http://matreshka.io/#Matreshka.Array-Model">Model</a> defines the class of elements which will be included into the collection. In this case, the elements of the collection will be instances of the <a href="todo.html">Todo</a> class.</p>
+              <p><a href="http://matreshka.io/#Matreshka.Array-Model">Model</a> defines the class of items which will be included into the collection. In this case, the items of the collection will be instances of the <a href="todo.html">Todo</a> class.</p>
 
             </div>
             
@@ -85,7 +85,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p> Defining the <a href="http://matreshka.io/#Matreshka.Array-itemRenderer">itemRenderer</a> property, you create a renderer for every added element of the array. In this case, the element includes the template with id=todo_item_template (see HTML code).</p>
+              <p> Defining the <a href="http://matreshka.io/#Matreshka.Array-itemRenderer">itemRenderer</a> property, you create a renderer for every added item of the array (see HTML code).</p>
 
             </div>
             
@@ -119,7 +119,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>The <code>&quot;bindings&quot;</code> method adds bindings between the properties of the class instance and DOM elements. The <code>&quot;events&quot;</code> method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and create the todo elements from it with the help of the <a href="http://matreshka.io/#Matreshka.Array-recreate">recreate</a> method.</p>
+              <p>The <code>&quot;bindings&quot;</code> method adds data bindings between the properties of the class instance and DOM nodes. The <code>&quot;events&quot;</code> method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and restore the todo items from it using <a href="http://matreshka.io/#Matreshka.Array-recreate">recreate</a> method.</p>
 
             </div>
             
@@ -138,7 +138,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>We use the <a href="https://github.com/flatiron/director">director</a> library for routing, as it is required by the specification of TodoMVC. When `location.hash<code>is changed, its value is added to the</code>“route”`` property.</p>
+              <p>We use the <a href="https://github.com/flatiron/director">director</a> library for routing, as it is required by the specification of TodoMVC. When <code>location.hash</code> is changed, its value is added to the <code>&quot;route&quot;</code> property.</p>
 
             </div>
             
@@ -178,7 +178,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Bind some other elements (<code>main</code>, <code>footer</code>, etc.). The <code>:sandbox</code> selector is not used because we access the elements by ID.</p>
+              <p>Bind some other nodes (<code>main</code>, <code>footer</code>, etc.). The <code>:sandbox</code> selector is not used because we access the elements by their ID.</p>
 
             </div>
             
@@ -200,7 +200,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>The next call of <a href="http://matreshka.io/#Matreshka-bindNode">bindNode</a> makes the visibility of elements dependable on the values of corresponding properties (if the value runs a non-strict  test for equality <code>true</code>, the element will be shown, otherwise - hidden).</p>
+              <p>The next call of <a href="http://matreshka.io/#Matreshka-bindNode">bindNode</a> makes the visibility of HTML nodes dependable on the values of corresponding properties (if the value passes a non-strict test for equality <code>true</code>, the element will be shown, otherwise - hidden).</p>
 
             </div>
             
@@ -218,7 +218,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>The next two bindings change HTML of the bound elements depending on a value of the corresponding property.</p>
+              <p>The next two bindings change inner HTML of the bound nodes depending on a value of the corresponding properties.</p>
 
             </div>
             
@@ -285,7 +285,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>If the Enter key is pressed in the input bound to the <code>“newTodo&quot;</code> property and the value of this property which is cleared from spaces is not an empty string, add a new todo item using the <code>push</code> method.</p>
+              <p>If the Enter key is pressed in the input bound to the <code>“newTodo&quot;</code> property and the trimmed value of this property is not an empty string, add a new todo item using the <code>push</code> method.</p>
 
             </div>
             
@@ -311,7 +311,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>When the value of the <code>&quot;allCompleted&quot;</code> property is changed, we change <code>&quot;completed&quot;</code> for all todo to the same value. The <code>&quot;silent&quot;</code> flag means that the <code>&quot;change:completed&quot;</code> event must not be called.</p>
+              <p>When the value of the <code>&quot;allCompleted&quot;</code> property is changed, we change <code>&quot;completed&quot;</code> for all todo items to the same value. The <code>&quot;silent&quot;</code> flag means that the <code>&quot;change:completed&quot;</code> event must not be triggered.</p>
 
             </div>
             
@@ -332,7 +332,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>The click of the mouse on the <code>&#39;#clear-completed&#39;</code> element deletes all the performed items using the <a href="http://matreshka.io/#Matreshka.Array-pull">pull</a> method.</p>
+              <p>A mouse click on the <code>&#39;#clear-completed&#39;</code> node deletes all the performed items using the <a href="http://matreshka.io/#Matreshka.Array-pull">pull</a> method.</p>
 
             </div>
             
@@ -353,7 +353,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>If some element from the todo list has generated the <code>&quot;readytodie&quot;</code> event, we delete it using the <a href="http://matreshka.io/#Matreshka.Array#pull">pull</a> method.</p>
+              <p>If some element from the todo list has fired the <code>&quot;readytodie&quot;</code> event, we delete it using the <a href="http://matreshka.io/#Matreshka.Array#pull">pull</a> method.</p>
 
             </div>
             
@@ -379,9 +379,9 @@
 					<span class="hljs-keyword">return</span> todo.completed;
 				}), { silent: <span class="hljs-literal">true</span> } );
 				
-				<span class="hljs-keyword">this</span>.set( <span class="hljs-string">'completedLength'</span>, <span class="hljs-keyword">this</span>.filter( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( todo )</span> </span>{
+				<span class="hljs-keyword">this</span>.completedLength = <span class="hljs-keyword">this</span>.filter( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( todo )</span> </span>{
 					<span class="hljs-keyword">return</span> todo.completed;
-				}).length );
+				}).length;
 			})</pre></div></div>
             
         </li>

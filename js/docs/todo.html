@@ -74,7 +74,7 @@
               </div>
               <p>Assign the default values and add the keys <code>&quot;title&quot;</code> and <code>&quot;completed&quot;</code> to the list of the keys which are responsible for the data (see <a href="http://matreshka.io/#Matreshka.Object-jset">jset</a>).
 The <code>&quot;title&quot;</code> property by default is an empty string.
-The <code>&quot;completed&quot;</code> property by default is false.</p>
+The <code>&quot;completed&quot;</code> property by default is <code>false</code>.</p>
 
             </div>
             
@@ -92,7 +92,7 @@ The <code>&quot;completed&quot;</code> property by default is false.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>Now assign the data which the constructor has received as an argument to the properties, overwriting the default values  (for example, <code>{ title: &#39;Do it!&#39; }</code>).</p>
+              <p>Now assign the data which the constructor has received as an argument, overwriting the default values  (for example, <code>{ title: &#39;Do it!&#39; }</code>).</p>
 
             </div>
             
@@ -138,7 +138,7 @@ The <code>&quot;completed&quot;</code> property by default is false.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>The binding of the elements that do not require the assignment of the binder (binder). The <a href="http://matreshka.io/#Matreshka.Array-defaultBinders">defaultBinders</a> are used here if it is possible.</p>
+              <p>The binding of the elements that do not require the assignment of the binder (binder). The <a href="http://matreshka.io/#Matreshka.defaultBinders">defaultBinders</a> are used here if it is possible.</p>
 <ul>
 <li>The <code>&quot;completed&quot;</code> property is bound to the checkbox with <code>toggle</code> class</li>
 <li>The <code>&quot;edit&quot;</code> property is bound to the field (<code>input type=text</code>) with <code>edit</code> class</li>
@@ -209,8 +209,8 @@ After that we take focus on the field bound to the <code>&quot;edit&quot;</code>
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>Add the <code>&quot;keyup&quot;</code> event handler to the element bound to the <code>&quot;edit&quot;</code> property.
-If the <code>Esc</code> key is pressed, return from the edit mode to the normal mode.
-If the <code>Enter</code> key is pressed, delete unnecessary spaces from the <code>&quot;edit&quot;</code> property value and assign it to the <code>&quot;title&quot;</code> property. Then return from the edit mode to the normal mode. If the value is an empty string, call the <code>readytodie</code> event which is listened by the <code>Todos</code> class.</p>
+If the <code>Esc</code> key is pressed, go back from the edit mode to the normal mode.
+If the <code>Enter</code> key is pressed, delete unnecessary spaces from the <code>&quot;edit&quot;</code> property value and assign it to the <code>&quot;title&quot;</code> property. Then go back from the edit mode to the normal mode. If the value is an empty string, call the <code>readytodie</code> event which is listened to by the <code>Todos</code> class.</p>
 
             </div>
             

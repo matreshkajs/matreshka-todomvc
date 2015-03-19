@@ -47,7 +47,7 @@ var Todo = Class({
 					})
 					// Add the ``"keyup"`` event handler to the element bound to the ``"edit"`` property.
 					// If the ``Esc`` key is pressed, go back from the edit mode to the normal mode.
-					// If the ``Enter`` key is pressed, delete unnecessary spaces from the ``"edit"`` property value and assign it to the ``"title"`` property. Then go back from the edit mode to the normal mode. If the value is an empty string, call the ``readytodie`` event which is listened by the ``Todos`` class.
+					// If the ``Enter`` key is pressed, delete unnecessary spaces from the ``"edit"`` property value and assign it to the ``"title"`` property. Then go back from the edit mode to the normal mode. If the value is an empty string, call the ``readytodie`` event which is listened to by the ``Todos`` class.
 					.on( 'keyup::edit', function( evt ) {
 						var editValue;
 						if( evt.which === ESC_KEY ) {
