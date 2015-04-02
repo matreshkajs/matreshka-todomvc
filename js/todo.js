@@ -66,7 +66,7 @@ var Todo = Class({
 						this.trigger( 'readytodie', this );
 					})
 				;
-			});
+			})
 		;
 	}
 });

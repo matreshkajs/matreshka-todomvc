@@ -104,7 +104,7 @@ var Todos = Class({
 					}
 				}, this );
 			})
-			// If some element from the todo list has fired the ``"readytodie"`` event, we delete it using the [pull](http://matreshka.io/#Matreshka.Array#pull) method.
+			// If some element from the todo list has fired the ``"readytodie"`` event, we delete it using the [pull](http://matreshka.io/#Matreshka.Array-pull) method.
 			.on( '@readytodie', function( todo ) {
 				this.pull( todo );
 			})
@@ -122,7 +122,7 @@ var Todos = Class({
 			.on( 'modify @change:completed change:allCompleted', function() {
 				this.JSON = JSON.stringify( this );
 			})
-			// The next strings control how the visibility of the items from the todo list is controlled by ``location.hash`` (or the ``"route"`` property). This part can be implemented in several ways. The way of adding dependencies of one property on the others using the [linkProps](http://matreshka.io/#Matreshka.Array-linkProps) method has been chosen here. What happens here? We listen to the ``"addone"`` event which fires when a new item is added to the todo list. The event handler receives the object (``evt``) as an argument containing the ``"added"`` property which is the added item. We add the dependency of the ``"visible"`` property for the added item on ``todos.route`` and on the own ``"completed"`` property.
+			// The next strings control how the visibility of the items from the todo list is controlled by ``location.hash`` (or the ``"route"`` property). This part can be implemented in several ways. The way of adding dependencies of one property on the others using the [linkProps](http://matreshka.io/#Matreshka-linkProps) method has been chosen here. What happens here? We listen to the ``"addone"`` event which fires when a new item is added to the todo list. The event handler receives the object (``evt``) as an argument containing the ``"added"`` property which is the added item. We add the dependency of the ``"visible"`` property for the added item on ``todos.route`` and on the own ``"completed"`` property.
 			.on( 'addone', function( evt ) {
 				var todo = evt.added;
 				

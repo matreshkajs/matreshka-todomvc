@@ -353,7 +353,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>If some element from the todo list has fired the <code>&quot;readytodie&quot;</code> event, we delete it using the <a href="http://matreshka.io/#Matreshka.Array#pull">pull</a> method.</p>
+              <p>If some element from the todo list has fired the <code>&quot;readytodie&quot;</code> event, we delete it using the <a href="http://matreshka.io/#Matreshka.Array-pull">pull</a> method.</p>
 
             </div>
             
@@ -410,7 +410,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p>The next strings control how the visibility of the items from the todo list is controlled by <code>location.hash</code> (or the <code>&quot;route&quot;</code> property). This part can be implemented in several ways. The way of adding dependencies of one property on the others using the <a href="http://matreshka.io/#Matreshka.Array-linkProps">linkProps</a> method has been chosen here. What happens here? We listen to the <code>&quot;addone&quot;</code> event which fires when a new item is added to the todo list. The event handler receives the object (<code>evt</code>) as an argument containing the <code>&quot;added&quot;</code> property which is the added item. We add the dependency of the <code>&quot;visible&quot;</code> property for the added item on <code>todos.route</code> and on the own <code>&quot;completed&quot;</code> property.</p>
+              <p>The next strings control how the visibility of the items from the todo list is controlled by <code>location.hash</code> (or the <code>&quot;route&quot;</code> property). This part can be implemented in several ways. The way of adding dependencies of one property on the others using the <a href="http://matreshka.io/#Matreshka-linkProps">linkProps</a> method has been chosen here. What happens here? We listen to the <code>&quot;addone&quot;</code> event which fires when a new item is added to the todo list. The event handler receives the object (<code>evt</code>) as an argument containing the <code>&quot;added&quot;</code> property which is the added item. We add the dependency of the <code>&quot;visible&quot;</code> property for the added item on <code>todos.route</code> and on the own <code>&quot;completed&quot;</code> property.</p>
 
             </div>
             

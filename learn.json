@@ -1,16 +1,22 @@
 {
 	"matreshka": {
 		"name": "Matreshka",
-		"description": "Matreshka is framework for JavaScript ninjas who loves their job.",
+		"description": "Matreshka is JavaScript Framework for Programmers.",
 		"homepage": "matreshka.io",
 		"examples": [],
 		"link_groups": [{
 			"heading": "Official Resources",
 			"links":  [{
-				"name": "Docs and other stuff",
+				"name": "This page on Github",
+				"url": "https://github.com/finom/matreshka_todomvc"
+			},{
+				"name": "Source code with annotations",
+				"url": "http://matreshka.io/todo/js/docs/app.html"
+			},{
+				"name": "Matreshka.io",
 				"url": "http://matreshka.io"
 			},{
-				"name": "Repo on Github",
+				"name": "Matreshka on Github",
 				"url": "http://github.com/finom/matreshka"
 			}]
 		}]

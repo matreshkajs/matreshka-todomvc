@@ -74,7 +74,7 @@ var Todos = Class({
 			.onDebounce( 'change:JSON', function( evt ) {
 				localStorage[ 'todos-matreshka' ] = evt.value;
 			})
-			// Если в инпуте, привязанном к свойству ``"newTodo"`` нажата клавиша  ``Enter`` и если очищенное от пробелов значение этого свойства не является пустой строкой, добавляем новый пункт todo, используя метод [push](http://ru.matreshka.io/#Matreshka.Array-push).
+			// Если в инпуте, привязанном к свойству ``"newTodo"`` нажата клавиша  ``Enter`` и если очищенное от пробелов значение этого свойства не является пустой строкой, добавляем новый пункт todo, используя метод ``push``).
 			.on( 'keyup::newTodo', function( evt ) {
 				var newTodo;
 				if( evt.which === ENTER_KEY ) {
@@ -103,7 +103,7 @@ var Todos = Class({
 					}
 				}, this );
 			})
-			// Если какой-нибудь элемент списка дел сгенерировал событие ``"readytodie"``, мы его удаляем, используя метод [pull](http://ru.matreshka.io/#Matreshka.Array#pull).
+			// Если какой-нибудь элемент списка дел сгенерировал событие ``"readytodie"``, мы его удаляем, используя метод [pull](http://ru.matreshka.io/#Matreshka.Array-pull).
 			.on( '@readytodie', function( todo ) {
 				this.pull( todo );
 			})
