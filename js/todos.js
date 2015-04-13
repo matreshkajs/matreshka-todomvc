@@ -98,11 +98,11 @@ var Todos = Class({
 			})
 			// A mouse click on the ``'#clear-completed'`` node deletes all the performed items using the [pull](http://matreshka.io/#Matreshka.Array-pull) method.
 			.on( 'click::clearCompleted', function() {
-				this.forEach( function( todo ) {
-					if( todo.completed ) {
-						this.pull( todo );
+				for( var i = 0; i < this.length; i++ ) {
+					if( this[i].completed ) {
+						this.pull( this[i--] );
 					}
-				}, this );
+				}
 			})
 			// If some element from the todo list has fired the ``"readytodie"`` event, we delete it using the [pull](http://matreshka.io/#Matreshka.Array-pull) method.
 			.on( '@readytodie', function( todo ) {

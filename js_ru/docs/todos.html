@@ -336,11 +336,11 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>			.on( <span class="hljs-string">'click::clearCompleted'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-				<span class="hljs-keyword">this</span>.forEach( <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( todo )</span> </span>{
-					<span class="hljs-keyword">if</span>( todo.completed ) {
-						<span class="hljs-keyword">this</span>.pull( todo );
+				<span class="hljs-keyword">for</span>( <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.length; i++ ) {
+					<span class="hljs-keyword">if</span>( <span class="hljs-keyword">this</span>[i].completed ) {
+						<span class="hljs-keyword">this</span>.pull( <span class="hljs-keyword">this</span>[i--] );
 					}
-				}, <span class="hljs-keyword">this</span> );
+				}
 			})</pre></div></div>
             
         </li>

@@ -97,11 +97,11 @@ var Todos = Class({
 			})
 			// Клик мышью по элементу ``'#clear-completed'`` удаляет все выволненные пункты, используя метод [pull](http://ru.matreshka.io/#Matreshka.Array-pull).
 			.on( 'click::clearCompleted', function() {
-				this.forEach( function( todo ) {
-					if( todo.completed ) {
-						this.pull( todo );
+				for( var i = 0; i < this.length; i++ ) {
+					if( this[i].completed ) {
+						this.pull( this[i--] );
 					}
-				}, this );
+				}
 			})
 			// Если какой-нибудь элемент списка дел сгенерировал событие ``"readytodie"``, мы его удаляем, используя метод [pull](http://ru.matreshka.io/#Matreshka.Array-pull).
 			.on( '@readytodie', function( todo ) {
