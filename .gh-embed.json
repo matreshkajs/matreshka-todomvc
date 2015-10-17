@@ -1,0 +1,24 @@
+{
+	"linenums": true,
+	"embed": [{
+		"type": "htmlpage",
+		"label": "Result",
+		"url": "http://matreshkajs.github.io/matreshka_todomvc/"
+	}, {
+		"type": "html",
+		"label": "index.html",
+		"path": "matreshka_todomvc/index.html"
+	}, {
+		"type": "js",
+		"label": "app.js",
+		"path": "matreshka_todomvc/js/app.js"
+	}, {
+		"type": "js",
+		"label": "todo.js",
+		"path": "matreshka_todomvc/js/todo.js"
+	}, {
+		"type": "js",
+		"label": "todos.js",
+		"path": "matreshka_todomvc/js/todos.js"
+	}]
+}

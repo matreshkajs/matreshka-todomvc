@@ -16,23 +16,25 @@
           <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
           <a class="small" href="javascript:void(0);">+</a>
           <div id="jump_wrapper">
-          <div id="jump_page">
-            
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
               
-              <a class="source" href="app.html">
-                app.js
-              </a>
-            
+                
+                <a class="source" href="app.html">
+                  app.js
+                </a>
               
-              <a class="source" href="todo.html">
-                todo.js
-              </a>
-            
+                
+                <a class="source" href="todo.html">
+                  todo.js
+                </a>
               
-              <a class="source" href="todos.html">
-                todos.js
-              </a>
-            
+                
+                <a class="source" href="todos.html">
+                  todos.js
+                </a>
+              
+            </div>
           </div>
         </li>
       </ul>
@@ -60,7 +62,7 @@
             <div class="content"><div class='highlight'><pre><span class="hljs-pi">"use strict"</span>;
 <span class="hljs-keyword">var</span> Todo = Class({
 	<span class="hljs-string">'extends'</span>: MK.Object,
-	constructor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( data )</span> </span>{
+	constructor: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data, parent</span>) </span>{
 		<span class="hljs-keyword">this</span></pre></div></div>
             
         </li>
@@ -96,7 +98,7 @@ The <code>&quot;completed&quot;</code> property by default is <code>false</code>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.set( data )</pre></div></div>
+            <div class="content"><div class='highlight'><pre>			.set(data)</pre></div></div>
             
         </li>
         
@@ -107,11 +109,16 @@ The <code>&quot;completed&quot;</code> property by default is <code>false</code>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>The <code>&quot;visible&quot;</code> property is responsible for the visibility of an element from the todo list on the page. </p>
+              <p>The <code>&quot;visible&quot;</code> property is responsible for the visibility of an element from the todo list on the page.
+We’re saving a reference to <code>Todos</code> instance in <code>&quot;parent&quot;</code> property</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.set( <span class="hljs-string">'visible'</span>, <span class="hljs-literal">true</span> )</pre></div></div>
+            <div class="content"><div class='highlight'><pre>			.set({
+				visible: <span class="hljs-literal">true</span>,
+				parent: parent
+			});
+	},</pre></div></div>
             
         </li>
         
@@ -122,12 +129,13 @@ The <code>&quot;completed&quot;</code> property by default is <code>false</code>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Wait for the <code>&quot;render&quot;</code> event using the <a href="http://matreshka.io/#Matreshka-on">on</a> method. The event fires when the element corresponding to the instance of the class is rendered.</p>
+              <p>Wait for the <code>&quot;render&quot;</code> event using the <a href="http://matreshka.io/#Matreshka.Array-onRender">onRender</a> vierual method. The event fires when the element corresponding to the instance of the class is rendered.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.on( <span class="hljs-string">'render'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( evt )</span> </span>{
-				<span class="hljs-keyword">this</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>	onRender: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">var</span> binders = MK.binders;
+		<span class="hljs-keyword">this</span></pre></div></div>
             
         </li>
         
@@ -147,11 +155,11 @@ The <code>&quot;completed&quot;</code> property by default is <code>false</code>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>					.bindNode({
-						completed: <span class="hljs-string">':sandbox .toggle'</span>,
-						edit: <span class="hljs-string">':sandbox .edit'</span>,
-						destroy: <span class="hljs-string">':sandbox .destroy'</span>
-					})</pre></div></div>
+            <div class="content"><div class='highlight'><pre>			.bindNode({
+				completed: <span class="hljs-string">':sandbox .toggle'</span>,
+				edit: <span class="hljs-string">':sandbox .edit'</span>,
+				destroy: <span class="hljs-string">':sandbox .destroy'</span>
+			})</pre></div></div>
             
         </li>
         
@@ -166,16 +174,16 @@ The <code>&quot;completed&quot;</code> property by default is <code>false</code>
 <ul>
 <li>The visibility of the sandbox element will depend on the value of the <code>&quot;visible&quot;</code> property (<a href="http://matreshka.io/#Matreshka.binders.visibility">binders.visibility</a>)</li>
 <li>The presence of the <code>&quot;completed&quot;</code> class in the sandbox element will depend on the value of the <code>&quot;completed&quot;</code> property (<a href="http://matreshka.io/#Matreshka.binders.className">binders.className</a>)</li>
-<li>The presence of the <code>&quot;editing&quot;</code> class in the sandbox element will depend on the value of the <code>&quot;editing&quot;</code> property </li>
-<li>Bind the element <code>label</code> whose <code>innerHTML</code> will be synchronized with the value of the <code>&quot;title&quot;</code> property (<a href="http://matreshka.io/#Matreshka.binders.innerHTML">binders.innerHTML</a>)</li>
+<li>The presence of the <code>&quot;editing&quot;</code> class in the sandbox element will depend on the value of the <code>&quot;editing&quot;</code> property</li>
+<li>Bind the element <code>label</code> whose <code>innerHTML</code> will be synchronized with the value of the <code>&quot;title&quot;</code> property (<a href="http://matreshka.io/#Matreshka.binders.html">binders.html</a>)</li>
 </ul>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>					.bindNode( <span class="hljs-string">'visible'</span>, <span class="hljs-string">':sandbox'</span>, MK.binders.visibility() )
-					.bindNode( <span class="hljs-string">'completed'</span>, <span class="hljs-string">':sandbox'</span>, MK.binders.className( <span class="hljs-string">'completed'</span> ) )
-					.bindNode( <span class="hljs-string">'editing'</span>, <span class="hljs-string">':sandbox'</span>, MK.binders.className( <span class="hljs-string">'editing'</span> ) )
-					.bindNode( <span class="hljs-string">'title'</span>, <span class="hljs-string">':sandbox label'</span>, MK.binders.innerHTML() )</pre></div></div>
+            <div class="content"><div class='highlight'><pre>			.bindNode(<span class="hljs-string">'visible'</span>, <span class="hljs-string">':sandbox'</span>, binders.visibility())
+			.bindNode(<span class="hljs-string">'completed'</span>, <span class="hljs-string">':sandbox'</span>, binders.className(<span class="hljs-string">'completed'</span>))
+			.bindNode(<span class="hljs-string">'editing'</span>, <span class="hljs-string">':sandbox'</span>, binders.className(<span class="hljs-string">'editing'</span>))
+			.bindNode(<span class="hljs-string">'title'</span>, <span class="hljs-string">':sandbox label'</span>, binders.html())</pre></div></div>
             
         </li>
         
@@ -193,11 +201,11 @@ After that we take focus on the field bound to the <code>&quot;edit&quot;</code>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>					.on( <span class="hljs-string">'dblclick::title'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-						<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">true</span>;
-						<span class="hljs-keyword">this</span>.edit = <span class="hljs-keyword">this</span>.title;
-						<span class="hljs-keyword">this</span>.$bound( <span class="hljs-string">'edit'</span> ).focus();
-					})</pre></div></div>
+            <div class="content"><div class='highlight'><pre>			.on(<span class="hljs-string">'dblclick::title'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+				<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">true</span>;
+				<span class="hljs-keyword">this</span>.edit = <span class="hljs-keyword">this</span>.title;
+				<span class="hljs-keyword">this</span>.$bound(<span class="hljs-string">'edit'</span>).focus();
+			})</pre></div></div>
             
         </li>
         
@@ -210,23 +218,23 @@ After that we take focus on the field bound to the <code>&quot;edit&quot;</code>
               </div>
               <p>Add the <code>&quot;keyup&quot;</code> event handler to the element bound to the <code>&quot;edit&quot;</code> property.
 If the <code>Esc</code> key is pressed, go back from the edit mode to the normal mode.
-If the <code>Enter</code> key is pressed, delete unnecessary spaces from the <code>&quot;edit&quot;</code> property value and assign it to the <code>&quot;title&quot;</code> property. Then go back from the edit mode to the normal mode. If the value is an empty string, call the <code>readytodie</code> event which is listened to by the <code>Todos</code> class.</p>
+If the <code>Enter</code> key is pressed, delete unnecessary spaces from the <code>&quot;edit&quot;</code> property value and assign it to the <code>&quot;title&quot;</code> property. Then go back from the edit mode to the normal mode. If the value is an empty string, remove itsm from <code>Todos</code> instance.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>					.on( <span class="hljs-string">'keyup::edit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">( evt )</span> </span>{
-						<span class="hljs-keyword">var</span> editValue;
-						<span class="hljs-keyword">if</span>( evt.which === ESC_KEY ) {
-							<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">false</span>;
-						} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( evt.which === ENTER_KEY ) {
-							<span class="hljs-keyword">if</span>( editValue = <span class="hljs-keyword">this</span>.edit.trim() ) {
-								<span class="hljs-keyword">this</span>.title = editValue;
-								<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">false</span>;
-							} <span class="hljs-keyword">else</span> {
-								<span class="hljs-keyword">this</span>.trigger( <span class="hljs-string">'readytodie'</span>, <span class="hljs-keyword">this</span> );
-							}
-						}
-					})</pre></div></div>
+            <div class="content"><div class='highlight'><pre>			.on(<span class="hljs-string">'keyup::edit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>{
+				<span class="hljs-keyword">var</span> editValue;
+				<span class="hljs-keyword">if</span> (evt.which === ESC_KEY) {
+					<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">false</span>;
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (evt.which === ENTER_KEY) {
+					<span class="hljs-keyword">if</span> (editValue = <span class="hljs-keyword">this</span>.edit.trim()) {
+						<span class="hljs-keyword">this</span>.title = editValue;
+						<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">false</span>;
+					} <span class="hljs-keyword">else</span> {
+						<span class="hljs-keyword">this</span>.parent.pull(<span class="hljs-keyword">this</span>);
+					}
+				}
+			})</pre></div></div>
             
         </li>
         
@@ -237,16 +245,14 @@ If the <code>Enter</code> key is pressed, delete unnecessary spaces from the <co
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>If we click on the element that is responsible for the item deletion, we trigger the <code>readytodie</code> event which is listened to by the <code>Todos</code> class.</p>
+              <p>we delete it using the <a href="http://matreshka.io/#Matreshka.Array-pull">pull</a> method.
+If we click on the element that is responsible for the item deletion, we trigger the <code>readytodie</code> event which is listened to by the <code>Todos</code> class.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>					.on( <span class="hljs-string">'click::destroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
-						<span class="hljs-keyword">this</span>.trigger( <span class="hljs-string">'readytodie'</span>, <span class="hljs-keyword">this</span> );
-					})
-				;
-			})
-		;
+            <div class="content"><div class='highlight'><pre>			.on(<span class="hljs-string">'click::destroy'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+				<span class="hljs-keyword">this</span>.parent.pull(<span class="hljs-keyword">this</span>);
+			});
 	}
 });</pre></div></div>
             
