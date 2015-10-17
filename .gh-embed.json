@@ -7,18 +7,18 @@
 	}, {
 		"type": "html",
 		"label": "index.html",
-		"path": "matreshka_todomvc/index.html"
+		"path": "index.html"
 	}, {
 		"type": "js",
 		"label": "app.js",
-		"path": "matreshka_todomvc/js/app.js"
+		"path": "js/app.js"
 	}, {
 		"type": "js",
 		"label": "todo.js",
-		"path": "matreshka_todomvc/js/todo.js"
+		"path": "js/todo.js"
 	}, {
 		"type": "js",
 		"label": "todos.js",
-		"path": "matreshka_todomvc/js/todos.js"
+		"path": "js/todos.js"
 	}]
 }
