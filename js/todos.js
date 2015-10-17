@@ -128,5 +128,5 @@ var Todos = Class({
 					return !route || route === 'completed' && completed || route === 'active' && !completed;
 				});
 			});
-	},
+	}
 });
