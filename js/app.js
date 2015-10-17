@@ -4,7 +4,7 @@
 var ENTER_KEY = 13;
 var ESC_KEY = 27;
 
-(function (window) {
+(function(window) {
 	'use strict';
 	// Initialize the application
 	window.app = new Todos;

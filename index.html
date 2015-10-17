@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="en" data-framework="matreshka">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Template • TodoMVC</title>
-		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+		<title>Matreshka.js • TodoMVC</title>
 		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
 		<!-- CSS overrides - remove if you don't need it -->
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
-		<section id="todoapp">
-			<header id="header">
+		<section class="todoapp">
+			<header class="header">
 				<h1>todos</h1>
-				<input id="new-todo" placeholder="What needs to be done?" autofocus>
+				<input class="new-todo" placeholder="What needs to be done?" autofocus>
 			</header>
 			<!-- This section should be hidden by default and shown when there are todos -->
-			<section id="main">
-				<input id="toggle-all" type="checkbox">
+			<section class="main">
+				<input class="toggle-all" type="checkbox">
 				<label for="toggle-all">Mark all as complete</label>
-				<ul id="todo-list">
+				<ul class="todo-list">
 					<script type="text/html" id="todo_item_template">
 						<li>
 							<div class="view">
@@ -33,11 +33,11 @@
 				</ul>
 			</section>
 			<!-- This footer should hidden by default and shown when there are todos -->
-			<footer id="footer">
+			<footer class="footer">
 				<!-- This should be `0 items left` by default -->
-				<span id="todo-count"><strong>0</strong> item left</span>
+				<span class="todo-count"><strong>0</strong> item left</span>
 				<!-- Remove this if you don't implement routing -->
-				<ul id="filters">
+				<ul class="filters">
 					<li>
 						<a class="selected" href="#/">All</a>
 					</li>
@@ -49,15 +49,15 @@
 					</li>
 				</ul>
 				<!-- Hidden if no completed items are left ↓ -->
-				<button id="clear-completed"></button>
+				<button class="clear-completed">Clear completed (<span class="completed-length"></span>)</button>
 			</footer>
 		</section>
-		<footer id="info">
+		<footer class="info">
 			<p>Double-click to edit a todo</p>
 			<!-- Remove the below line ↓ -->
 			<p>Template by <a href="http://sindresorhus.com">Sindre Sorhus</a></p>
 			<!-- Change this out with your name and url ↓ -->
-			<p>Created by <a href="http://todomvc.com">you</a></p>
+			<p>Created by <a href="http://github.com/finom">finom</a></p>
 			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 		</footer>
 		<!-- Scripts here. Don't remove ↓ -->
