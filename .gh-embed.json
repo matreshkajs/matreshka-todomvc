@@ -4,21 +4,5 @@
 		"type": "htmlpage",
 		"label": "Result",
 		"url": "http://matreshkajs.github.io/matreshka_todomvc/"
-	}, {
-		"type": "html",
-		"label": "index.html",
-		"path": "index.html"
-	}, {
-		"type": "js",
-		"label": "app.js",
-		"path": "js/app.js"
-	}, {
-		"type": "js",
-		"label": "todo.js",
-		"path": "js/todo.js"
-	}, {
-		"type": "js",
-		"label": "todos.js",
-		"path": "js/todos.js"
 	}]
 }
