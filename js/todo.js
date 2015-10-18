@@ -68,7 +68,7 @@ var Todo = Class({
 					}
 				}
 			})
-			// If we click on the element that is responsible for the item deletion, we delete this item from the ``Todos`` unstance using the [pull](http://matreshka.io/#!Matreshka.Array-pull) method.
+			// If we click on the element that is responsible for the item deletion, we delete this item from the ``Todos`` instance using the [pull](http://matreshka.io/#!Matreshka.Array-pull) method.
 			.on('click::destroy', function() {
 				this.parent.pull(this);
 			});
