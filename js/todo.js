@@ -68,8 +68,7 @@ var Todo = Class({
 					}
 				}
 			})
-			//we delete it using the [pull](http://matreshka.io/#Matreshka.Array-pull) method.
-			// If we click on the element that is responsible for the item deletion, we trigger the ``readytodie`` event which is listened to by the ``Todos`` class.
+			// If we click on the element that is responsible for the item deletion, we delete this item from the ``Todos`` unstance using the [pull](http://matreshka.io/#!Matreshka.Array-pull) method.
 			.on('click::destroy', function() {
 				this.parent.pull(this);
 			});
