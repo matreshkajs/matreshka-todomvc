@@ -5,7 +5,7 @@
     "todomvc-common": "^1.0.2",
     "jquery": "~2.1.4",
     "director": "~1.2.8",
-    "matreshka": "~1.5.1"
+    "matreshka": "~1.6.0"
   },
   "scripts": {
 	"docco": "docco -o docs js/*js"
