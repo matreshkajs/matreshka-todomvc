@@ -3,6 +3,6 @@
 	"embed": [{
 		"type": "htmlpage",
 		"label": "Result",
-		"url": "http://matreshkajs.github.io/matreshka_todomvc/"
+		"url": "//matreshkajs.github.io/matreshka_todomvc/"
 	}]
 }
