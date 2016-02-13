@@ -12,21 +12,12 @@ var Todos = Class({
 			.linkProps('leftLength', 'length completedLength', function(length, completedLength) {
 				return length - completedLength;
 			})
-			// The ``"bindings"`` method adds data bindings between the properties of the class instance and DOM nodes. The ``"events"`` method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and restore the todo items from it using [recreate](http://matreshka.io/#Matreshka.Array-recreate) method.
+			// The ``"bindings"`` method adds data bindings between the properties of the class instance and DOM nodes. The ``"events"`` method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and restore the todo items from it using [recreate](http://matreshka.io/#Matreshka.Array-recreate) method. After all we initialize router.
 
-		.bindings()
+			.bindings()
 			.events()
-			.recreate(JSON.parse(localStorage['todos-matreshka'] || '[]'));
-
-		// We use the [director](https://github.com/flatiron/director) library for routing, as it is required by the specification of TodoMVC. When ``location.hash`` is changed, its value is added to the ``"route"`` property.
-		Router({
-			':state': function(state) {
-				self.route = state;
-			},
-			'': function() {
-				self.route = '';
-			}
-		}).init();
+			.recreate(JSON.parse(localStorage['todos-matreshka'] || '[]'))
+			.initRouter('/state/');
 	},
 	bindings: function() {
 		var binders = MK.binders;
@@ -54,12 +45,12 @@ var Todos = Class({
 					$(this).html('<strong>' + v + '</strong> item' + (v !== 1 ? 's' : '') + ' left');
 				}
 			})
-			// This binding controls which exact link (“All”, “Active”, “Completed”) will be highlighted in bold. The following technique has been used for demonstrating the work of ``bindNode`` here: we bind the ``#filters`` element to the ``"route"`` property, but in the binder we manipulate the links inside this element.
-			.bindNode('route', '.filters', {
+			// This binding controls which exact link (“All”, “Active”, “Completed”) will be highlighted in bold. The following technique has been used for demonstrating the work of ``bindNode`` here: we bind the ``#filters`` element to the ``"state"`` property, but in the binder we manipulate the links inside this element.
+			.bindNode('state', '.filters', {
 				setValue: function(v) {
 					$(this).find('a').each(function() {
 						var $this = $(this);
-						$this.toggleClass('selected', $this.attr('href') === '#/' + v);
+						$this.toggleClass('selected', $this.attr('href') === '#!/' + v);
 					});
 				}
 			});
@@ -117,15 +108,15 @@ var Todos = Class({
 			.on('modify *@change:completed change:allCompleted', function() {
 				this.JSON = JSON.stringify(this);
 			})
-			// The next strings control how the visibility of the items from the todo list is controlled by ``location.hash`` (or the ``"route"`` property). This part can be implemented in several ways. The way of adding dependencies of one property on the others using the [linkProps](http://matreshka.io/#Matreshka-linkProps) method has been chosen here. What happens here? We listen to the ``"addone"`` event which fires when a new item is added to the todo list. The event handler receives the object (``evt``) as an argument containing the ``"added"`` property which is the added item. We add the dependency of the ``"visible"`` property for the added item on ``todos.route`` and on the own ``"completed"`` property.
+			// The next strings control how the visibility of the items from the todo list is controlled by ``location.hash`` (or the ``"state"`` property). This part can be implemented in several ways. The way of adding dependencies of one property on the others using the [linkProps](http://matreshka.io/#Matreshka-linkProps) method has been chosen here. What happens here? We listen to the ``"addone"`` event which fires when a new item is added to the todo list. The event handler receives the object (``evt``) as an argument containing the ``"added"`` property which is the added item. We add the dependency of the ``"visible"`` property for the added item on ``todos.state`` and on the own ``"completed"`` property.
 			.on('addone', function(evt) {
 				var todo = evt.added;
 
 				todo.linkProps('visible', [
 					todo, 'completed',
-					this, 'route'
-				], function(completed, route) {
-					return !route || route === 'completed' && completed || route === 'active' && !completed;
+					this, 'state'
+				], function(completed, state) {
+					return !state || state === 'completed' && completed || state === 'active' && !completed;
 				});
 			});
 	}
