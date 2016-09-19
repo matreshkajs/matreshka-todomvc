@@ -1,13 +1,20 @@
 {
+  "name": "matreshka-todomvc",
+  "version": "2.0.0",
   "private": true,
-  "dependencies": {
-    "todomvc-app-css": "^2.0.3",
-    "todomvc-common": "^1.0.2",
-    "jquery": "~2.2.3",
-    "matreshka": "~1.8.0",
-    "matreshka-router": "0.0.5"
-  },
   "scripts": {
-	"docco": "docco -o docs js/*js"
+    "docco": "docco -o docs js/*js",
+    "check-updates": "ncu",
+    "upgrade": "npm run check-updates -- --upgradeAll && npm install"
+  },
+  "dependencies": {
+    "todomvc-app-css": "^2.0.6",
+    "todomvc-common": "^1.0.2",
+    "jquery": "~3.1.0"
+  },
+  "devDependencies": {
+    "docco": "^0.7.0",
+    "http-server": "^0.9.0",
+    "npm-check-updates": "^2.8.0"
   }
 }
