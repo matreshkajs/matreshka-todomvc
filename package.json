@@ -5,12 +5,12 @@
   "scripts": {
     "docco": "docco -o docs js/*js",
     "check-updates": "ncu",
-    "upgrade": "npm run check-updates -- --upgradeAll && npm install"
+    "upgrade": "npm run check-updates -- --upgradeAll && npm install",
+    "start": "http-server -p 8035 --silent -o "
   },
   "dependencies": {
     "todomvc-app-css": "^2.0.6",
-    "todomvc-common": "^1.0.2",
-    "jquery": "~3.1.0"
+    "todomvc-common": "^1.0.2"
   },
   "devDependencies": {
     "docco": "^0.7.0",
