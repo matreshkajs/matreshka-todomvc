@@ -4,6 +4,6 @@
 
 ![](https://raw.githubusercontent.com/tastejs/todomvc-app-css/master/screenshot.png)
 
-[Live example](http://matreshkajs.github.io/todomvc/)
+[Live demo](http://matreshkajs.github.io/todomvc/)
 
 [Annotated source code](http://matreshkajs.github.io/todomvc/docs/app.html)
