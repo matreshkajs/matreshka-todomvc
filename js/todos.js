@@ -15,7 +15,7 @@ class Todos extends Matreshka.Array {
 			.calc('leftLength', ['length', 'completedLength'], (length, completedLength) => {
 				return length - completedLength;
 			})
-			// The ``"bindings"`` method adds data bindings between the properties of the class instance and DOM nodes. The ``"events"`` method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and restore the todo items from it using [recreate](http://matreshka.io/#!Matreshka.Array-recreate) method. After all we initialize router.
+			// The ``"bindings"`` method adds data bindings between the properties of the class instance and DOM nodes. The ``"events"`` method, as you may guess, adds the event handlers. These names of the methods are not special; they group different actions for the code purity. After their launching, take the data out of the local storage and restore the todo items from it using [recreate](http://matreshka.io/#!Matreshka.Array-recreate) method. After all we initialize [a router](https://github.com/matreshkajs/matreshka-router).
 
 			.bindings()
 			.events()
@@ -27,7 +27,7 @@ class Todos extends Matreshka.Array {
 	bindings() {
 		const binders = Matreshka.binders;
 		return this
-			// Declare a sandbox
+			// Declare a sandbox.
 			.bindNode('sandbox', '.todoapp')
 			// Bind some other nodes (``main``, ``footer``, etc.).
 			.bindNode({
