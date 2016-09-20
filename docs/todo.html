@@ -60,8 +60,8 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Todo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Matreshka</span>.<span class="hljs-title">Object</span> </span>{
-	<span class="hljs-keyword">constructor</span>(data, parent) {
-		<span class="hljs-keyword">super</span>()</pre></div></div>
+    <span class="hljs-keyword">constructor</span>(data, parent) {
+        <span class="hljs-keyword">super</span>()</pre></div></div>
             
         </li>
         
@@ -78,10 +78,10 @@ The <code>&quot;completed&quot;</code> property by default is <code>false</code>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.setData({
-				title: <span class="hljs-string">''</span>,
-				completed: <span class="hljs-literal">false</span>
-			})</pre></div></div>
+            <div class="content"><div class='highlight'><pre>            .setData({
+                title: <span class="hljs-string">''</span>,
+                completed: <span class="hljs-literal">false</span>
+            })</pre></div></div>
             
         </li>
         
@@ -96,7 +96,7 @@ The <code>&quot;completed&quot;</code> property by default is <code>false</code>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.set(data)</pre></div></div>
+            <div class="content"><div class='highlight'><pre>            .set(data)</pre></div></div>
             
         </li>
         
@@ -112,11 +112,11 @@ We’re saving a reference to <code>Todos</code> instance in <code>&quot;parent&
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.set({
-				visible: <span class="hljs-literal">true</span>,
-				parent
-			});
-	}</pre></div></div>
+            <div class="content"><div class='highlight'><pre>            .set({
+                visible: <span class="hljs-literal">true</span>,
+                parent
+            });
+    }</pre></div></div>
             
         </li>
         
@@ -131,9 +131,9 @@ We’re saving a reference to <code>Todos</code> instance in <code>&quot;parent&
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>	onRender() {
-		<span class="hljs-keyword">const</span> { binders } = Matreshka;
-		<span class="hljs-keyword">this</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>    onRender() {
+        <span class="hljs-keyword">const</span> { binders } = Matreshka;
+        <span class="hljs-keyword">this</span></pre></div></div>
             
         </li>
         
@@ -153,11 +153,11 @@ We’re saving a reference to <code>Todos</code> instance in <code>&quot;parent&
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.bindNode({
-				completed: <span class="hljs-string">':sandbox .toggle'</span>,
-				edit: <span class="hljs-string">':sandbox .edit'</span>,
-				destroy: <span class="hljs-string">':sandbox .destroy'</span>
-			})</pre></div></div>
+            <div class="content"><div class='highlight'><pre>            .bindNode({
+                completed: <span class="hljs-string">':sandbox .toggle'</span>,
+                edit: <span class="hljs-string">':sandbox .edit'</span>,
+                destroy: <span class="hljs-string">':sandbox .destroy'</span>
+            })</pre></div></div>
             
         </li>
         
@@ -178,10 +178,10 @@ We’re saving a reference to <code>Todos</code> instance in <code>&quot;parent&
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.bindNode(<span class="hljs-string">'visible'</span>, <span class="hljs-string">':sandbox'</span>, binders.display())
-			.bindNode(<span class="hljs-string">'completed'</span>, <span class="hljs-string">':sandbox'</span>, binders.className(<span class="hljs-string">'completed'</span>))
-			.bindNode(<span class="hljs-string">'editing'</span>, <span class="hljs-string">':sandbox'</span>, binders.className(<span class="hljs-string">'editing'</span>))
-			.bindNode(<span class="hljs-string">'title'</span>, <span class="hljs-string">':sandbox label'</span>, binders.html())</pre></div></div>
+            <div class="content"><div class='highlight'><pre>            .bindNode(<span class="hljs-string">'visible'</span>, <span class="hljs-string">':sandbox'</span>, binders.display())
+            .bindNode(<span class="hljs-string">'completed'</span>, <span class="hljs-string">':sandbox'</span>, binders.className(<span class="hljs-string">'completed'</span>))
+            .bindNode(<span class="hljs-string">'editing'</span>, <span class="hljs-string">':sandbox'</span>, binders.className(<span class="hljs-string">'editing'</span>))
+            .bindNode(<span class="hljs-string">'title'</span>, <span class="hljs-string">':sandbox label'</span>, binders.html())</pre></div></div>
             
         </li>
         
@@ -199,11 +199,11 @@ After that we take focus on the field bound to the <code>&quot;edit&quot;</code>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.on(<span class="hljs-string">'dblclick::title'</span>, () =&gt; {
-				<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">true</span>;
-				<span class="hljs-keyword">this</span>.edit = <span class="hljs-keyword">this</span>.title;
-				<span class="hljs-keyword">this</span>.nodes.edit.focus();
-			})</pre></div></div>
+            <div class="content"><div class='highlight'><pre>            .on(<span class="hljs-string">'dblclick::title'</span>, () =&gt; {
+                <span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">this</span>.edit = <span class="hljs-keyword">this</span>.title;
+                <span class="hljs-keyword">this</span>.nodes.edit.focus();
+            })</pre></div></div>
             
         </li>
         
@@ -220,19 +220,20 @@ If the <code>Enter</code> key is pressed, delete unnecessary spaces from the <co
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.on(<span class="hljs-string">'keyup::edit'</span>, evt =&gt; {
-				<span class="hljs-keyword">let</span> editValue;
-				<span class="hljs-keyword">if</span> (evt.which === ESC_KEY) {
-					<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">false</span>;
-				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (evt.which === ENTER_KEY) {
-					<span class="hljs-keyword">if</span> (editValue = <span class="hljs-keyword">this</span>.edit.trim()) {
-						<span class="hljs-keyword">this</span>.title = editValue;
-						<span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">false</span>;
-					} <span class="hljs-keyword">else</span> {
-						<span class="hljs-keyword">this</span>.parent.pull(<span class="hljs-keyword">this</span>);
-					}
-				}
-			})</pre></div></div>
+            <div class="content"><div class='highlight'><pre>            .on(<span class="hljs-string">'keyup::edit'</span>, (evt) =&gt; {
+                <span class="hljs-keyword">if</span> (evt.which === ESC_KEY) {
+                    <span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">false</span>;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (evt.which === ENTER_KEY) {
+                    <span class="hljs-keyword">const</span> editValue = <span class="hljs-keyword">this</span>.edit.trim();
+
+                    <span class="hljs-keyword">if</span> (editValue) {
+                        <span class="hljs-keyword">this</span>.title = editValue;
+                        <span class="hljs-keyword">this</span>.editing = <span class="hljs-literal">false</span>;
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">this</span>.parent.pull(<span class="hljs-keyword">this</span>);
+                    }
+                }
+            })</pre></div></div>
             
         </li>
         
@@ -247,10 +248,10 @@ If the <code>Enter</code> key is pressed, delete unnecessary spaces from the <co
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>			.on(<span class="hljs-string">'click::destroy'</span>, () =&gt; {
-				<span class="hljs-keyword">this</span>.parent.pull(<span class="hljs-keyword">this</span>);
-			});
-	}
+            <div class="content"><div class='highlight'><pre>            .on(<span class="hljs-string">'click::destroy'</span>, () =&gt; {
+                <span class="hljs-keyword">this</span>.parent.pull(<span class="hljs-keyword">this</span>);
+            });
+    }
 }</pre></div></div>
             
         </li>
