@@ -1,7 +1,8 @@
 // **todo.js** contains the ``Todo`` class, which is inherited from the [Matreshka.Object](http://matreshka.io/#!Matreshka.Object) class and used as a ([Model](http://matreshka.io/#!Matreshka.Array-Model)) for the main class ([Todos](todos.html)).
 class Todo extends Matreshka.Object {
     constructor(data, parent) {
-        super()
+        super();
+        this
             // Assign the default values and add the keys ``"title"`` and ``"completed"`` to the list of the keys which are responsible for the data (see [setData](http://matreshka.io/#!Matreshka.Object-setData)).
             // The ``"title"`` property by default is an empty string.
             // The ``"completed"`` property by default is ``false``.
