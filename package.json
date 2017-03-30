@@ -6,19 +6,19 @@
     "test": "eslint js",
     "docco": "docco -o docs js/*js",
     "check-updates": "ncu",
-    "upgrade": "npm run check-updates -- --upgradeAll && npm install",
+    "upgrade": "npm run check-updates -- -u -a && yarn install",
     "start": "http-server -p 8035 --silent -o "
   },
   "dependencies": {
-    "todomvc-app-css": "^2.0.6",
-    "todomvc-common": "^1.0.2"
+    "todomvc-app-css": "^2.1.0",
+    "todomvc-common": "^1.0.3"
   },
   "devDependencies": {
     "docco": "^0.7.0",
     "http-server": "^0.9.0",
-    "npm-check-updates": "^2.8.6",
-    "eslint": "^3.9.1",
-    "eslint-config-airbnb-base": "^10.0.1",
+    "npm-check-updates": "^2.10.4",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.2",
     "eslint-plugin-import": "^2.2.0"
   }
 }
