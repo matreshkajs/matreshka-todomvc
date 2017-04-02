@@ -5,8 +5,7 @@
   "scripts": {
     "test": "eslint js",
     "docco": "docco -o docs js/*js",
-    "check-updates": "ncu",
-    "upgrade": "npm run check-updates -- -u -a && yarn install",
+    "upgrade": "ncu -u -a && yarn install",
     "start": "http-server -p 8035 --silent -o "
   },
   "dependencies": {
@@ -17,7 +16,7 @@
     "docco": "^0.7.0",
     "http-server": "^0.9.0",
     "npm-check-updates": "^2.10.4",
-    "eslint": "^3.18.0",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.1.2",
     "eslint-plugin-import": "^2.2.0"
   }
