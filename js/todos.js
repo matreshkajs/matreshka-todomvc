@@ -24,7 +24,7 @@ class Todos extends Matreshka.Array {
     }
 
     bindings() {
-        const binders = Matreshka.binders;
+        const { binders } = Matreshka;
         return this
             // Declare a sandbox.
             .bindNode('sandbox', '.todoapp')
@@ -123,8 +123,7 @@ class Todos extends Matreshka.Array {
                     key: 'state'
                 }], (completed, state) => !state
                         || (state === 'completed' && completed)
-                        || (state === 'active' && !completed)
-                );
+                        || (state === 'active' && !completed));
             });
     }
 }

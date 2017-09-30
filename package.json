@@ -10,14 +10,14 @@
   },
   "dependencies": {
     "todomvc-app-css": "^2.1.0",
-    "todomvc-common": "^1.0.3"
+    "todomvc-common": "^1.0.4"
   },
   "devDependencies": {
     "docco": "^0.7.0",
     "http-server": "^0.10.0",
-    "npm-check-updates": "^2.11.3",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.3.0"
+    "npm-check-updates": "^2.12.1",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0"
   }
 }
