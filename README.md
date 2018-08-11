@@ -1,9 +1,9 @@
 # Matreshka.js TodoMVC
 
-[![Dependency Status](https://img.shields.io/david/matreshkajs/todomvc.svg)](https://david-dm.org/matreshkajs/todomvc) [![devDependencies Status](https://david-dm.org/matreshkajs/todomvc/dev-status.svg)](https://david-dm.org/matreshkajs/todomvc?type=dev)
+[![Dependency Status](https://img.shields.io/david/matreshkajs/todomvc.svg)](https://david-dm.org/matreshkajs/matreshka-todomvc) [![devDependencies Status](https://david-dm.org/matreshkajs/todomvc/dev-status.svg)](https://david-dm.org/matreshkajs/matreshka-todomvc?type=dev)
 
 ![](https://raw.githubusercontent.com/tastejs/todomvc-app-css/master/screenshot.png)
 
-[Live demo](http://matreshkajs.github.io/todomvc/)
+[Live demo](http://matreshkajs.github.io/matreshka-todomvc/)
 
-[Annotated source code](http://matreshkajs.github.io/todomvc/docs/app.html)
+[Annotated source code](http://matreshkajs.github.io/matreshka-todomvc/docs/app.html)
